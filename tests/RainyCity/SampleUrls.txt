@@ -1,0 +1,22 @@
+# SampleUrls.txt
+#
+# Expected result may be a URL, or one of the following:
+#
+#     NO REWRITE
+#     FORBIDDEN
+#     REDIRECT <code>  <URL>
+#     NOT FOUND
+#
+#
+
+# Incoming URL                                Expected Result
+#----------------------------------------------------------------------
+#
+
+http://www.example.com/_category-1-with-text_cateogory-2---with-text_category-3-with-text_some-product---name.htm   REDIRECT 302 /index/category-1-with-text/cateogory-2-with-text/category-3-with-text/some-product-name.htm
+
+http://somesub.somedomain.com/fabble       REDIRECT 301 http://othersub.somedomain.com/fabble
+
+
+
+
