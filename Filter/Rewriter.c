@@ -1276,7 +1276,7 @@ DWORD DoRewrites(HTTP_FILTER_CONTEXT * pfc)
             pfc->ServerSupportFunction (pfc,
                                         SF_REQ_SEND_RESPONSE_HEADER,
                                         (PVOID) codestring,  // eg, "302"
-                                        (DWORD) buf,         // headers to add
+                                        (ULONG_PTR) buf,     // headers to add
                                         0);
 
             SetRequestInfoInCustomFilterContext(pfc, originalUriStem, queryString, requestMethod);
@@ -3782,7 +3782,8 @@ BOOL WINAPI DllMain(HINSTANCE hInst, ULONG ulReason, LPVOID lpReserved)
             DeleteCriticalSection(&gcsFilterConfig);
             DeleteCriticalSection(&gcsLogFileList);
             DeleteCriticalSection(&gcsVdirConfig);
-            if (gIirfVersion) free(gIirfVersion);
+            if (gIirfVersion) free(gIirfVersion);
+
             if (gIirfStartupTime) free(gIirfStartupTime);
             gAlreadyCleanedUp= TRUE;
             break;
